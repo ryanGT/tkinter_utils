@@ -77,6 +77,18 @@ class abstract_window(object):
         return mywidget
 
 
+    def make_text_box_and_grid_nw(self, row, col, width=50, height=10, \
+                                  root=None, wrap='word', sticky='nw', \
+                                  font=("Helvetica", 14)):
+        if root is None:
+            root = self
+
+        widget = tk.Text(self, width=width, height=height, font=font)
+        self.grid_box_nw(widget, row, col, sticky=sticky)
+        return widget
+        
+
+
     def _assign_widget_and_var_to_attrs(self, basename, tail, mywidget, myvar):
         var_attr = basename + '_var'
         setattr(self, var_attr, myvar)
